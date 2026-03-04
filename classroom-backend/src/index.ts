@@ -1,13 +1,13 @@
 import { eq } from 'drizzle-orm';
-import { db, pool } from './db';
-import { demoUsers } from './schema';
+import { db, pool } from './db/index';
+// import { demoUsers } from './db/schema';
 
 async function main() {
   try {
     console.log('Performing CRUD operations...');
 
     const [newUser] = await db
-      .insert(demoUsers)
+      // .insert(demoUsers)
       .values({ name: 'Admin User', email: 'admin@example.com' })
       .returning();
 
